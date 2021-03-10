@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<title></title>
+<body>
+    <label>First name</label><input type="text" id="fname"><br>
+    <label>last name</label><input type="text" id="lname"><br>
+    <label>PHONE NUMBER</label><input type="text" id="pnum"><br>
+    <label>EMAIL ID</label><input type="text" id="email"><br>
+    <input type="button" onclick="addElement()" value="SUBMIT"><br>
+    <script>
+        addElement(){
+            let fname = document.getElementById(fname);
+            let lname = document.getElementById(lname);
+            let pnum = document.getElementById(pnum);
+            let email = document.getElementById(email); 
+            let personinfo [fname,lname,pnum,email];
+            localStorage.setItem("parray",personinfo);
+        }
+    </script>
+</body>
