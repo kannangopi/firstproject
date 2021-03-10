@@ -7,13 +7,18 @@
     <label>EMAIL ID</label><input type="text" id="email"><br>
     <input type="button" onclick="addElement()" value="SUBMIT"><br>
     <script>
-        addElement(){
-            let fname = document.getElementById(fname);
-            let lname = document.getElementById(lname);
-            let pnum = document.getElementById(pnum);
-            let email = document.getElementById(email); 
-            let personinfo [fname,lname,pnum,email];
-            localStorage.setItem("parray",personinfo);
-        }
+var index = 0;
+var userData = [];
+function addElement() {
+    window.alert("data saved");
+    userData[index] = {
+        fname : document.getElementById("fname").value,
+        lname : document.getElementById("lname").value,
+        pnum : document.getElementById("pnum").value,
+        email : document.getElementById("email").value,
+    };
+    index = index + 1;
+    localStorage.setItem("A", JSON.stringify(userData));
+}
     </script>
 </body>
