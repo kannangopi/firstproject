@@ -6,7 +6,7 @@
 
 <body>
 
-  <button onclick="parent.location='addDetails.html'"> Add Details</button>
+  <button><a href="addDetails.html">Add Details</a></button>
   <button onclick="datafill()">show</button>
   <table border="1" id="attach">
     <tr>
@@ -28,6 +28,10 @@
         create = JSON.parse(num);
       }
       var tbl=document.getElementById("attach");
+      var delcount=tbl.rows.length;
+      while(--delcount){
+        tbl.deleteRow(delcount);
+      }
 
       for (i = 0; i < create.length; i++)
       {
