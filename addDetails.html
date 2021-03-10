@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <title></title>
+
 <body>
     <label>First name</label><input type="text" id="fname"><br>
     <label>last name</label><input type="text" id="lname"><br>
@@ -7,18 +8,18 @@
     <label>EMAIL ID</label><input type="text" id="email"><br>
     <input type="button" onclick="addElement()" value="SUBMIT"><br>
     <script>
-var index = 0;
-var userData = [];
-function addElement() {
-    window.alert("data saved");
-    userData[index] = {
-        fname : document.getElementById("fname").value,
-        lname : document.getElementById("lname").value,
-        pnum : document.getElementById("pnum").value,
-        email : document.getElementById("email").value,
-    };
-    index = index + 1;
-    localStorage.setItem("A", JSON.stringify(userData));
-}
+        var index = 0;
+        var userData = new Array();
+        function addElement() {
+            userData.push({
+                fname: document.getElementById("fname").value,
+                lname: document.getElementById("lname").value,
+                pnum: document.getElementById("pnum").value,
+                email: document.getElementById("email").value,
+            });
+
+            localStorage.setItem("Data", JSON.stringify(userData));
+
+        }
     </script>
 </body>
