@@ -12,6 +12,7 @@
         var index = 0;
         var userData = new Array();
         function addElement() {
+            display();
             userData.push({
                 fname: document.getElementById("fname").value,
                 lname: document.getElementById("lname").value,
@@ -21,6 +22,12 @@
 
             localStorage.setItem("Data", JSON.stringify(userData));
 
+        }
+        function display(){
+            var re=localStorage.getItem("Data");
+            if(re!= null){
+                userData = JSON.parse(re);
+            }
         }
     </script>
 </body>
