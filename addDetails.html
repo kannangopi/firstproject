@@ -13,19 +13,48 @@
         var userData = new Array();
         function addElement() {
             display();
-            userData.push({
-                fname: document.getElementById("fname").value,
-                lname: document.getElementById("lname").value,
-                pnum: document.getElementById("pnum").value,
-                email: document.getElementById("email").value,
-            });
+            let fnam = document.getElementById("fname").value;
+            let lnam = document.getElementById("lname").value;
+            let num = document.getElementById("pnum").value;
+            let mil = document.getElementById("email").value;
 
-            localStorage.setItem("Data", JSON.stringify(userData));
+
+            
+            if (fnam == "" || lnam == "" || num == "" || mil == "") {
+                alert("fill all details !");
+            } else if (! /^[A-Za-z ]+$/.test(fnam)) {
+                alert("type valid first name");
+
+            } else if (! /^[A-Za-z ]+$/.test(lnam)) {
+                alert("type valid last name");
+            } else if (! /^\d{10}$/.test(num)) {
+                alert("type valid phone number");
+            } else if (! /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(mil))
+            {
+                alert("type a valid email id");
+            } else {
+                userData.push({
+                    fname: document.getElementById("fname").value,
+                    lname: document.getElementById("lname").value,
+                    pnum: document.getElementById("pnum").value,
+                    email: document.getElementById("email").value,
+                });
+
+                localStorage.setItem("Data", JSON.stringify(userData));
+
+                alert("details saved");
+                document.getElementById("fname").value = "";
+                document.getElementById("lname").value = "";
+                document.getElementById("pnum").value = "";
+                document.getElementById("email").value = "";
+
+            }
+
 
         }
-        function display(){
-            var re=localStorage.getItem("Data");
-            if(re!= null){
+        function display() {
+            var re = localStorage.getItem("Data");
+            if (re != null) {
                 userData = JSON.parse(re);
             }
         }
